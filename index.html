@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Bash Prompt Interpreter</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="script.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.w3-container:after,.w3-container:before,.w3-panel:after,.w3-panel:before,.w3-row:after,.w3-row:before,.w3-row-padding:after,.w3-row-padding:before,
+		.w3-block{display:block;width:100%}
+		.w3-hide{display:none!important}.w3-show-block,.w3-show{display:block!important}.w3-show-inline-block{display:inline-block!important}
+	</style>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	
+
+	<h1>Bash Prompt Interpreter</h1>
+	<br />
+	<br />
+	<br />
+	<br />
+
+	<pre style="background-color:white; width:80%; border-radius:0.8em; padding:5px">
+		<code>
+if (BashIsBashingYou) {
+	return "Sorry to hear that. Here's a tool to make you feel better!"
+}
+else if (2020IsBashingYou) {
+	return "Take a look at this tool anyway, at least for the doodles!"
+}
+else {
+	return "Hmmm. I sense an alien among us ..."
+}
+		</code>
+	</pre>
+
+	<br />
+		<h2>What does this app do?</h2>
+		<p>
+			Jokes aside, this tool is designed to make it a bit
+			easier for you to test out values of prompts in bash,
+			without having to set them as your prompt. 
+			<br />
+			<br />
+			Why can this be a problem? If you screw up your prompt
+			enough, the terminal can become unusable, so you'll have
+			to open up a new session and try again. This stopping and
+			starting can get really frustrating when you're testing
+			different prompts out.
+			<br />
+			<br />
+			Enter in
+			any values you want in the "Optional parameters" section
+			and the value of the prompt you'd like to test out,
+			and you should get your result!
+			<br />
+			<br />
+		</p>
+		<h2>How can I use this tool?</h2>
+		<p>
+			Here are a few different sample inputs and outputs
+			to try! 
+			<br />
+			<br />
+
+			<div style="background-color:white; padding:8px; border-radius:0.8em">
+				Input: <code>\[\e[1;32m\]KR$ \[\e[m\]</code>
+				<br />
+				Output: <b style="color:green">KR$ </b>
+				<br />
+				<br />
+				Input: <code>\u@\w</code>, with username and working directory in placeholder
+				<br />
+				Output: <code> sam@~/toad </code>
+				<br />
+				<br />
+				Input: <code>\[\e[1;34m\]\H \T$ \[\e[m\]</code>, with hostname in placeholder
+				<br />
+				Output: <b style="color:blue">potato.toad 10:48:24$ </b>
+			</div>
+			<br />
+			<br />
+		</p>
+		<h2>Useful things to keep in mind:</h2>
+		<ul>
+			<li>This tool isn't perfect.
+				After playing around, you might want to make
+				this your prompt,
+				and see if you like it before chucking
+				it in your <code>.bashrc</code>
+			</li>
+			<li>Hint: enclose non-printable portions in
+				<code>\[</code> and <code>\]</code>. Why?
+				When you test the
+				prompt, the issue will not be immediately
+				apparent, either with this tool or in the shell.
+				Here's a more detailed explanation on
+				<a href="https://krithravi.com/writeup/bash">my website</a>.
+			</li>
+		</ul>
+
+	<br />
+
+	<h2> Optional parameters </h2>
+
+	<br />
+
+	<div>
+		Enter the hostname:
+		<input id="hostname" type="text" placeholder="potato.toad" />
+		<br />
+		<br />
+
+		Enter # of jobs currently managed by shell:
+		<input id="jobs" type="text" placeholder="10" />
+		<br />
+		<br />
+
+		Enter the terminal device name:
+		<input id="term" type="text" placeholder="0" />
+		<br />
+		<br />
+
+		Enter the name of the shell:
+		<input id="shell" type="text" placeholder="bash" />
+		<br />
+		<br />
+
+		Enter the username:
+		<input id="user" type="text" placeholder="sam" />
+		<br />
+		<br />
+
+		Bash version #:
+		<input id="version" type="text" placeholder="2.00" />
+		<br />
+		<br />
+
+		Bash release #:
+		<input id="release" type="text" placeholder="2.00.0" />
+		<br />
+		<br />
+
+		Working directory:
+		<input id="pwd" type="text" placeholder="/home/sam/toad" />
+		<br />
+		<br />
+
+		History # of the command:
+		<input id="hist" type="text" placeholder="12345" />
+		<br />
+		<br />
+
+		Command # of the command:
+		<input id="comm" type="text" placeholder="947" />
+		<br />
+		<br />
+
+		How would you like the bell character to be represented?
+		<input type="radio" name="bellChar" value="text" checked="checked">String</input>
+		<input type="radio" name="bellChar" value="audio">Audio</input>
+
+		<br />
+		<br />
+		<br />
+	</div>
+	<h2> Value of the prompt (requisite): </h2>
+	<br/>
+	<div>
+		Prompt:
+		<input id="prompt" type="text" placeholder="$ " />
+
+		<button id="tocopy" class="button" style="width:auto">
+			Copy prompt
+		</button>
+
+		<br />
+
+		<button id="button" class="button" style="width:auto">
+			Let's take a look!
+		</button>
+
+		<br />
+		<br />
+		<br />
+	</div>
+	
+	<h2> Result! </h2>
+	<br />
+
+	<div id="result">
+		<code id="demo"></code>
+	</div>
+
+	<br />
+	<br />
+
+	<h2>FAQ</h2>
+	<div class="w3-container">
+		<button onclick="myFunction('ref')" class="button w3-block">
+			Where can I find the symbols for Bash prompts?
+		</button>
+			
+		<div id="ref" class="w3-hide w3-container w3-center">
+			<p>Take a look at the
+				<a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Controlling-the-Prompt"> the official manual!</a>
+			</p>
+		</div>
+
+		<button onclick="myFunction('bell')" class="button w3-block">
+			What's the deal with the bell character?
+		</button>
+			
+		<div id="bell" class="w3-hide w3-container w3-center">
+			<p>
+				The bell character is not a printed character;
+				it is often interpreted as
+				a sound instead. In this app, you can choose
+				how you want it to be represented, as either a string
+				(<code>BEL</code>), or as a sound.
+			</p>
+		</div>
+
+		<button onclick="myFunction('sup')" class="button w3-block">
+			What kinds of things are <i>not</i> supported?
+		</button>
+			
+		<div id="sup" class="w3-hide w3-container w3-center">
+			<p>
+				<ul>
+					<li>
+						Only bold, italics and strikethrough are supported; 
+						currently working on the rest. 
+					</li>
+					<li>
+						The <code>\D</code> key is currently not supported
+						with <code>strftime</code>. Sorry =(
+					</li>
+					<li>
+						This tool does not support
+						environmental variables such as <code>$HOME</code>,
+						mainly because pretty much anything can be a variable.
+						Therefore, certain errors surrounding the <code>$</code>
+						aren't interpreted as the shell would interpret them.
+						For example, <code>$egg</code> wouldn't be interpreted as
+						anything if <code>egg</code> isn't a variable. In this tool,
+						this is rendered as just <code>$egg</code>.
+					</li>
+				</ul>
+			</p>
+		</div>
+
+		<button onclick="myFunction('next')" class="button w3-block">
+			What should I do next?
+		</button>
+			
+		<div id="next" class="w3-hide w3-container w3-center">
+			<p>
+				Eat some apple/pumpkin pie =) 
+				Happy October (which is basically Halloween, right?)!
+			</p>
+		</div>
+	</div>
+	<br />
+	<br />
+
+</body>
+
+<footer>
+	<hr>
+	<p> Copyright  &#169; 2020 Krithika Ravishankar
+		<br />
+		Built with the <code>W3.CSS</code> framework, jQuery, and 
+		a whole lot of 
+		<a href="https://www.elfdict.com/w/melme">
+			<i>melme</i>
+		</a>.  
+	</p>
+</footer>
+
+</html>

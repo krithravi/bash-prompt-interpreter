@@ -1,0 +1,133 @@
+
+:root {
+	--navy-blue: #471726;
+	--light-blue: #ffffff;
+	--tiffany-blue: #9affe6;
+	--pink: #ffe3ff;
+	--apricot: #edb95a;
+	--yellow: #83fcab;
+}
+
+body {
+	font-family: helvetica, arial, sans-serif;
+	font-family: "Inconsolata", monospace;
+	margin: 2em;
+	background-color: var(--apricot);
+}
+
+h1 {
+	color: var(--navy-blue);
+	float: right;
+	width: 75%;
+	font-size: 35px;
+}
+h2 {
+	font-size: 30px;
+	color: var(--navy-blue);
+}
+::placeholder {
+	font-family: "Inconsolata", monospace;
+}
+
+p {
+	font-size: 20px;
+	clear: both;
+	font-family: "Roboto", sans-serif;
+}
+
+ul {
+	font-size:20px;
+	clear: both;
+	font-family: "Roboto", sans-serif;
+}
+
+li {
+	padding: 5px 0px;
+}
+
+.button {
+	border-radius: 7px;
+	border: none;
+	background-color: var(--yellow);
+	color: var(--navy-blue);
+	text-align: center;
+	padding: 8px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.button:hover {
+	box-shadow: 0 3px 7px 0 var(--tiffany-blue);
+}
+
+.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	color: inherit;
+	transition: 0.5s;
+}
+
+.button span:before {
+	content: "\00ab";
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	left: 20px;
+	transition: 0.5s;
+}
+
+.button:hover span {
+	padding-left: 15px;
+}
+
+.button:hover span:before {
+	opacity: 1;
+	left: 0;
+}
+
+#result {
+	background-color: white;
+	border: 2px;
+	font-size: 20px;
+	border-radius: 0.8em;
+	padding: 8px;
+}
+
+img {
+	border-radius: 2em;
+	margin: auto;
+	width: 20%;
+	float: left;
+}
+
+a:link {
+    color: #750135;
+    text-decoration: underline;
+}
+a:visited {
+    /*color: var(--visited);*/
+    color: #750135;
+}
+
+footer {
+	width: 100%;
+}
+input {
+	width: auto;
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+* {
+	font-size:20px;
+	margin: auto;
+	width: 90%;
+}
