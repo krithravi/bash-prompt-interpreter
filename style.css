@@ -17,8 +17,6 @@ body {
 
 h1 {
 	color: var(--navy-blue);
-	float: right;
-	width: 75%;
 	font-size: 35px;
 }
 h2 {
@@ -97,9 +95,8 @@ li {
 
 img {
 	border-radius: 2em;
-	margin: auto;
-	width: 20%;
-	float: left;
+	margin-left: 0%;
+	width:20%;
 }
 
 a:link {
