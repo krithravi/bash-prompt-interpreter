@@ -1,0 +1,25 @@
+prompt interpreter:
+	essentially an interpreter for ps0, ps1, ps2 and ps4 in bash
+	https://www.gnu.org/savannah-checkouts/gnu/bash/manual/html_node/Controlling-the-Prompt.html#Controlling-the-Prompt
+	as the user types, whatever they type gets interpreted into
+	bash, or returns error. that is:
+		if the thing is interpretable, interpret it
+		else, show "can't interpret this sorry"
+	I want to be able to support colors
+	if spot is given, then the variable takes the value of that
+		otherwise, one will be provided to you
+	sooo
+
+	a few things:
+	we'll want to *interpret* (method) on keydown for the main entry field
+		this implies reading everything, and outputting results :)
+	we'll have to deal with \ (escape char)
+		essentially, if the char afterwards is "important*, deal with it
+	we'll have to deal with $ too, for env vars
+		keep reading until char
+
+	plan:
+	work with input and output, and keydown
+	https://www.w3schools.com/jsref/event_onkeydown.asp
+	entry fields working from multiple
+	then logic/output
